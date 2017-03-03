@@ -1,0 +1,353 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C7BACE651E695975007E79A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BACE641E695975007E79A4 /* AppDelegate.swift */; };
+		C7BACE671E695975007E79A4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BACE661E695975007E79A4 /* ViewController.swift */; };
+		C7BACE6A1E695975007E79A4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7BACE681E695975007E79A4 /* Main.storyboard */; };
+		C7BACE6C1E695975007E79A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7BACE6B1E695975007E79A4 /* Assets.xcassets */; };
+		C7BACE6F1E695975007E79A4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7BACE6D1E695975007E79A4 /* LaunchScreen.storyboard */; };
+		C7BACE771E695E68007E79A4 /* iMouseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BACE761E695E68007E79A4 /* iMouseManager.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C7E0D3E11E69782F002D3F4C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C7E0D3DD1E69782E002D3F4C /* iMouseMac.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C7E0D3CB1E69782E002D3F4C;
+			remoteInfo = iMouseMac;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C7BACE611E695975007E79A4 /* iMouse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iMouse.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7BACE641E695975007E79A4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C7BACE661E695975007E79A4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C7BACE691E695975007E79A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C7BACE6B1E695975007E79A4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C7BACE6E1E695975007E79A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C7BACE701E695975007E79A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C7BACE761E695E68007E79A4 /* iMouseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iMouseManager.swift; sourceTree = "<group>"; };
+		C7E0D3DD1E69782E002D3F4C /* iMouseMac.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = iMouseMac.xcodeproj; path = iMouseMac/iMouseMac.xcodeproj; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C7BACE5E1E695975007E79A4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C7BACE581E695975007E79A4 = {
+			isa = PBXGroup;
+			children = (
+				C7E0D3DD1E69782E002D3F4C /* iMouseMac.xcodeproj */,
+				C7BACE631E695975007E79A4 /* iMouse */,
+				C7BACE621E695975007E79A4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C7BACE621E695975007E79A4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C7BACE611E695975007E79A4 /* iMouse.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C7BACE631E695975007E79A4 /* iMouse */ = {
+			isa = PBXGroup;
+			children = (
+				C7BACE641E695975007E79A4 /* AppDelegate.swift */,
+				C7BACE661E695975007E79A4 /* ViewController.swift */,
+				C7BACE681E695975007E79A4 /* Main.storyboard */,
+				C7BACE6B1E695975007E79A4 /* Assets.xcassets */,
+				C7BACE6D1E695975007E79A4 /* LaunchScreen.storyboard */,
+				C7BACE701E695975007E79A4 /* Info.plist */,
+				C7BACE761E695E68007E79A4 /* iMouseManager.swift */,
+			);
+			path = iMouse;
+			sourceTree = "<group>";
+		};
+		C7E0D3DE1E69782E002D3F4C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C7E0D3E21E69782F002D3F4C /* iMouseMac.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C7BACE601E695975007E79A4 /* iMouse */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C7BACE731E695975007E79A4 /* Build configuration list for PBXNativeTarget "iMouse" */;
+			buildPhases = (
+				C7BACE5D1E695975007E79A4 /* Sources */,
+				C7BACE5E1E695975007E79A4 /* Frameworks */,
+				C7BACE5F1E695975007E79A4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iMouse;
+			productName = iMouse;
+			productReference = C7BACE611E695975007E79A4 /* iMouse.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C7BACE591E695975007E79A4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = Hybris;
+				TargetAttributes = {
+					C7BACE601E695975007E79A4 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = D5R5F3X4EB;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = C7BACE5C1E695975007E79A4 /* Build configuration list for PBXProject "iMouse" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C7BACE581E695975007E79A4;
+			productRefGroup = C7BACE621E695975007E79A4 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = C7E0D3DE1E69782E002D3F4C /* Products */;
+					ProjectRef = C7E0D3DD1E69782E002D3F4C /* iMouseMac.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				C7BACE601E695975007E79A4 /* iMouse */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		C7E0D3E21E69782F002D3F4C /* iMouseMac.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = iMouseMac.app;
+			remoteRef = C7E0D3E11E69782F002D3F4C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C7BACE5F1E695975007E79A4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7BACE6F1E695975007E79A4 /* LaunchScreen.storyboard in Resources */,
+				C7BACE6C1E695975007E79A4 /* Assets.xcassets in Resources */,
+				C7BACE6A1E695975007E79A4 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C7BACE5D1E695975007E79A4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7BACE771E695E68007E79A4 /* iMouseManager.swift in Sources */,
+				C7BACE671E695975007E79A4 /* ViewController.swift in Sources */,
+				C7BACE651E695975007E79A4 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		C7BACE681E695975007E79A4 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C7BACE691E695975007E79A4 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C7BACE6D1E695975007E79A4 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C7BACE6E1E695975007E79A4 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C7BACE711E695975007E79A4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C7BACE721E695975007E79A4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C7BACE741E695975007E79A4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = D5R5F3X4EB;
+				INFOPLIST_FILE = iMouse/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = sap.hybris.iMouse;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		C7BACE751E695975007E79A4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = D5R5F3X4EB;
+				INFOPLIST_FILE = iMouse/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = sap.hybris.iMouse;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C7BACE5C1E695975007E79A4 /* Build configuration list for PBXProject "iMouse" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C7BACE711E695975007E79A4 /* Debug */,
+				C7BACE721E695975007E79A4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C7BACE731E695975007E79A4 /* Build configuration list for PBXNativeTarget "iMouse" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C7BACE741E695975007E79A4 /* Debug */,
+				C7BACE751E695975007E79A4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C7BACE591E695975007E79A4 /* Project object */;
+}
