@@ -21,8 +21,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lP7-um-grz">
-                                <rect key="frame" x="210" y="318" width="46" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lP7-um-grz">
+                                <rect key="frame" x="164.5" y="318" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="moveMouse:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2ex-cX-gAW"/>
@@ -30,13 +30,22 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="lP7-um-grz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="MMr-xi-LAu"/>
                             <constraint firstItem="lP7-um-grz" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="hd3-gP-0zS"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="4b0-s9-Kjd" appends="YES" id="y7c-xR-lL3"/>
+                        </connections>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="4b0-s9-Kjd">
+                    <connections>
+                        <action selector="gestureRecognize:" destination="BYZ-38-t0r" id="XDg-sL-W6K"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
         </scene>
     </scenes>

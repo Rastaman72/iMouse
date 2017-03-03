@@ -10,17 +10,19 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    @IBAction func moveMouse(_ sender: Any) {
-        manager.sentInfo()
-    }
+    var newPoint : CGPoint?
     var manager = iMouseManager()
+
+    @IBAction func gestureRecognize(_ sender: UIPanGestureRecognizer) {
+        newPoint = CGPoint(x: sender.translation(in: view).x, y: sender.translation(in: view).y)
+        manager.sentNewPoint(point: newPoint!)
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
     }
-    
-
 }
+
+
 

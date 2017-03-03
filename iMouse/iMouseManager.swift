@@ -19,7 +19,7 @@ class iMouseManager: NSObject {
     
     var kServiceUUID = "312700E2-E798-4D5C-8DCF-49908332DF9F"
     var kCharacteristicUUID = "FFA28CDE-6525-4489-801C-1C060CAC9767"
-
+    
     
     override init() {
         super.init()
@@ -37,12 +37,13 @@ class iMouseManager: NSObject {
         
     }
     
-    func sentInfo()
+    func sentNewPoint(point: CGPoint)
     {
-        let test = "asdasd"
-        customCharacteristic?.value = test.data(using: .utf8)!
-        let a = manager?.updateValue(test.data(using: .utf8)!, for: customCharacteristic!, onSubscribedCentrals: [central!])
-        print(a)
+        if central != nil {
+        let pointStr = NSStringFromCGPoint(point)
+            print(pointStr)
+        manager?.updateValue(pointStr.data(using: .utf8)!, for: customCharacteristic!, onSubscribedCentrals: [central!])
+        }
     }
     
 }
@@ -50,7 +51,6 @@ class iMouseManager: NSObject {
 extension iMouseManager: CBPeripheralManagerDelegate {
     
     func peripheralManagerIsReady(toUpdateSubscribers peripheral: CBPeripheralManager) {
-        print("toUpdateSubscribers")
     }
     
     func peripheralManagerDidUpdateState(_ peripheral: CBPeripheralManager) {

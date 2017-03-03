@@ -8,6 +8,7 @@
 //
 
 import CoreBluetooth
+import Quartz
 
 class iMouseManager: NSObject {
     
@@ -21,26 +22,27 @@ class iMouseManager: NSObject {
     
     var iMouse : CBPeripheral?
     
+    var mouseLocation :NSPoint?
+    
     override init() {
         super.init()
         manager = CBCentralManager(delegate: self, queue: nil)
-        
     }
     
-        func mouseMoveAndClick(onPoint point: CGPoint) {
-            guard let moveEvent = CGEvent(mouseEventSource: nil, mouseType: .mouseMoved, mouseCursorPosition: point, mouseButton: .left) else {
-                return
-            }
-            guard let downEvent = CGEvent(mouseEventSource: nil, mouseType: .leftMouseDown, mouseCursorPosition: point, mouseButton: .left) else {
-                return
-            }
-            guard let upEvent = CGEvent(mouseEventSource: nil, mouseType: .leftMouseUp, mouseCursorPosition: point, mouseButton: .left) else {
-                return
-            }
-            moveEvent.post(tap: CGEventTapLocation.cghidEventTap)
-            downEvent.post(tap: CGEventTapLocation.cghidEventTap)
-            upEvent.post(tap: CGEventTapLocation.cghidEventTap)
+    func mouseMoveAndClick(onPoint point: CGPoint) {
+        guard let moveEvent = CGEvent(mouseEventSource: nil, mouseType: .mouseMoved, mouseCursorPosition: point, mouseButton: .left) else {
+            return
         }
+        guard let downEvent = CGEvent(mouseEventSource: nil, mouseType: .leftMouseDown, mouseCursorPosition: point, mouseButton: .left) else {
+            return
+        }
+        guard let upEvent = CGEvent(mouseEventSource: nil, mouseType: .leftMouseUp, mouseCursorPosition: point, mouseButton: .left) else {
+            return
+        }
+        moveEvent.post(tap: CGEventTapLocation.cghidEventTap)
+        //            downEvent.post(tap: CGEventTapLocation.cghidEventTap)
+        //            upEvent.post(tap: CGEventTapLocation.cghidEventTap)
+    }
     
     
 }
@@ -51,32 +53,18 @@ extension iMouseManager: CBCentralManagerDelegate {
     }
     
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
+        
+        manager?.cancelPeripheralConnection(peripheral)
         if let name = peripheral.name  {
             if name == "iMouse"{
                 if peripheral.state.rawValue == 0 {
                     iMouse = peripheral
-                    iMouse?.delegate = self
                     manager?.connect(iMouse!, options: nil)
                 }
-                
             }
         }
         
     }
-    
-    func centralManager(_ central: CBCentralManager, willRestoreState dict: [String : Any]) {
-        print("will")
-    }
-    
-    
-    func centralManager(_ central: CBCentralManager, didRetrieveConnectedPeripherals peripherals: [CBPeripheral]) {
-        print("didRetrieveConnectedPeripherals")
-    }
-    
-    func centralManager(_ central: CBCentralManager, didRetrievePeripherals peripherals: [CBPeripheral]) {
-        print("didRetrievePeripherals")
-    }
-    
     
     func centralManager(_ central: CBCentralManager, didFailToConnect peripheral: CBPeripheral, error: Error?) {
         print(error)
@@ -88,12 +76,14 @@ extension iMouseManager: CBCentralManagerDelegate {
     
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
         print("didConnect")
+        iMouse?.delegate = self
+
         if (peripheral.name?.contains((iMouse?.name!)!))! {
-            iMouse?.discoverServices([CBUUID(string: kServiceUUID)])
+                iMouse?.discoverServices(nil)
+            
+//            [CBUUID(string: kServiceUUID)]
         }
     }
-    
-    
 }
 
 extension iMouseManager: CBPeripheralDelegate {
@@ -109,7 +99,7 @@ extension iMouseManager: CBPeripheralDelegate {
         if (peripheral.name?.contains((iMouse?.name)!))! {
             for characteristic in service.characteristics! {
                 
-                if characteristic.uuid.isEqual(to: CBUUID(string: "FFA28CDE-6525-4489-801C-1C060CAC9767")) {
+                if characteristic.uuid.isEqual(to: CBUUID(string: kCharacteristicUUID)) {
                     iMouse?.setNotifyValue(true, for: characteristic)
                 }
             }
@@ -117,8 +107,16 @@ extension iMouseManager: CBPeripheralDelegate {
     }
     
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
-        let a = String(data: characteristic.value!, encoding: .utf8)
-        mouseMoveAndClick(onPoint: CGPoint(x: 200, y: 200))
+        
+        let point = NSPointFromString(String(data: characteristic.value!, encoding: .utf8)!)
+        
+        mouseLocation = NSEvent.mouseLocation()
+        mouseLocation?.x += point.x
+        mouseLocation?.y += point.y
+        
+        let newPoint = NSPointToCGPoint(mouseLocation!)
+
+        mouseMoveAndClick(onPoint: newPoint)
     }
     
     func peripheral(_ peripheral: CBPeripheral, didUpdateNotificationStateFor characteristic: CBCharacteristic, error: Error?) {
