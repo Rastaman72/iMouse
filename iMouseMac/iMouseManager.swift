@@ -49,14 +49,14 @@ class iMouseManager: NSObject {
 
 extension iMouseManager: CBCentralManagerDelegate {
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
-        manager?.scanForPeripherals(withServices: nil, options: [CBCentralManagerScanOptionAllowDuplicatesKey : true])
+        manager?.scanForPeripherals(withServices: nil, options: nil)
     }
     
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
         
-        manager?.cancelPeripheralConnection(peripheral)
+        //        manager?.cancelPeripheralConnection(peripheral)
         if let name = peripheral.name  {
-            if name == "iMouse"{
+            if name == "iMouse" && iMouse == nil {
                 if peripheral.state.rawValue == 0 {
                     iMouse = peripheral
                     manager?.connect(iMouse!, options: nil)
@@ -71,17 +71,23 @@ extension iMouseManager: CBCentralManagerDelegate {
     }
     
     func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
-        print("didDisconnectPeripheral")
+        if let name = peripheral.name  {
+            if name == "iMouse"{
+                print("didDisconnectPeripheral")
+                iMouse = nil
+            }
+        }
+        
     }
     
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
         print("didConnect")
         iMouse?.delegate = self
-
+        
         if (peripheral.name?.contains((iMouse?.name!)!))! {
-                iMouse?.discoverServices(nil)
+            iMouse?.discoverServices(nil)
             
-//            [CBUUID(string: kServiceUUID)]
+            //            [CBUUID(string: kServiceUUID)]
         }
     }
 }
@@ -96,9 +102,11 @@ extension iMouseManager: CBPeripheralDelegate {
     }
     
     func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
+        print(peripheral.name)
+        print(iMouse?.name)
+
         if (peripheral.name?.contains((iMouse?.name)!))! {
             for characteristic in service.characteristics! {
-                
                 if characteristic.uuid.isEqual(to: CBUUID(string: kCharacteristicUUID)) {
                     iMouse?.setNotifyValue(true, for: characteristic)
                 }
@@ -115,7 +123,7 @@ extension iMouseManager: CBPeripheralDelegate {
         mouseLocation?.y += point.y
         
         let newPoint = NSPointToCGPoint(mouseLocation!)
-
+        
         mouseMoveAndClick(onPoint: newPoint)
     }
     
