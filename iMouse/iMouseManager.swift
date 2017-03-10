@@ -40,12 +40,10 @@ class iMouseManager: NSObject {
     func sentNewPoint(point: CGPoint)
     {
         if central != nil {
-        let pointStr = NSStringFromCGPoint(point)
-            print(pointStr)
-        manager?.updateValue(pointStr.data(using: .utf8)!, for: customCharacteristic!, onSubscribedCentrals: [central!])
+            let pointStr = NSStringFromCGPoint(point)
+            manager?.updateValue(pointStr.data(using: .utf8)!, for: customCharacteristic!, onSubscribedCentrals: [central!])
         }
     }
-    
 }
 
 extension iMouseManager: CBPeripheralManagerDelegate {
@@ -72,8 +70,6 @@ extension iMouseManager: CBPeripheralManagerDelegate {
     func peripheralManager(_ peripheral: CBPeripheralManager, central: CBCentral, didSubscribeTo characteristic: CBCharacteristic) {
         if self.central == nil {
             self.central = central
-            
         }
-        
     }
 }

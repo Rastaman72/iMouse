@@ -53,8 +53,6 @@ extension iMouseManager: CBCentralManagerDelegate {
     }
     
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
-        
-        //        manager?.cancelPeripheralConnection(peripheral)
         if let name = peripheral.name  {
             if name == "iMouse" && iMouse == nil {
                 if peripheral.state.rawValue == 0 {
@@ -63,7 +61,6 @@ extension iMouseManager: CBCentralManagerDelegate {
                 }
             }
         }
-        
     }
     
     func centralManager(_ central: CBCentralManager, didFailToConnect peripheral: CBPeripheral, error: Error?) {
@@ -83,11 +80,8 @@ extension iMouseManager: CBCentralManagerDelegate {
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
         print("didConnect")
         iMouse?.delegate = self
-        
         if (peripheral.name?.contains((iMouse?.name!)!))! {
-            iMouse?.discoverServices(nil)
-            
-            //            [CBUUID(string: kServiceUUID)]
+            iMouse?.discoverServices([CBUUID(string: kServiceUUID)])
         }
     }
 }
@@ -102,9 +96,6 @@ extension iMouseManager: CBPeripheralDelegate {
     }
     
     func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
-        print(peripheral.name)
-        print(iMouse?.name)
-
         if (peripheral.name?.contains((iMouse?.name)!))! {
             for characteristic in service.characteristics! {
                 if characteristic.uuid.isEqual(to: CBUUID(string: kCharacteristicUUID)) {
@@ -116,15 +107,20 @@ extension iMouseManager: CBPeripheralDelegate {
     
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
         
-        let point = NSPointFromString(String(data: characteristic.value!, encoding: .utf8)!)
-        
-        mouseLocation = NSEvent.mouseLocation()
-        mouseLocation?.x += point.x
-        mouseLocation?.y += point.y
-        
-        let newPoint = NSPointToCGPoint(mouseLocation!)
-        
-        mouseMoveAndClick(onPoint: newPoint)
+            let point = NSPointFromString(String(data: characteristic.value!, encoding: .utf8)!)
+            
+            self.mouseLocation = NSEvent.mouseLocation()
+            
+            let correctpoint = NSPoint(x: NSEvent.mouseLocation().x, y: (NSScreen.main()?.frame.size.height)! - NSEvent.mouseLocation().y)
+
+            self.mouseLocation?.x += point.x
+            self.mouseLocation?.y += point.y
+            
+            let newPoint = NSPointToCGPoint(self.mouseLocation!)
+            
+            self.mouseMoveAndClick(onPoint: newPoint)
+            
+   
     }
     
     func peripheral(_ peripheral: CBPeripheral, didUpdateNotificationStateFor characteristic: CBCharacteristic, error: Error?) {
